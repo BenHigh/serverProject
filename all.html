@@ -59,12 +59,13 @@
 
         $("#well-section").append(wellSection);
 
-        $("#reservation-well-" + i).append("<h2>" + data[i].reservationName + "</h2>");
+        $("#reservation-well-" + i).append("<h2>" + data[i].name + "</h2>");
 
-        $("#reservation-well-" + i).append("<h3>Name: " + data[i].phone_number + "</h4>");
+        $("#reservation-well-" + i).append("<h3>Time: " + data[i].time + "</h4>");
 
-        $("#reservation-well-" + i).append("<h3>Date: " + data[i].email + "</h4>");
-
+        $("#reservation-well-" + i).append("<h3>Phone Number: " + data[i].phone + "</h4>");
+        
+         $("#reservation-well-" + i).append("<h3>uID: " + data[i].uID + "</h4>");
         //$("#reservation-well-" + i).append("<h3>Time: " + data[i]. + "</h4>");
       }
     });

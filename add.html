@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" id="main">
     <div class="jumbotron">
 
 
@@ -75,16 +75,26 @@
       event.preventDefault();
 
       var newReservation = {
-        name: $("#name").val().trim(),
+        name: $("#reservationName").val().trim(),
+        phone: $("#phone_number").val().trim(),
         time: $("#time").val().trim(),
-        phone_number: $("#phone_number").val().trim(),
+        uID: ""
       };
-
+// "<div class="alert alert-success alert-dismissable">
+//    Indicates a successful or positive action.
+// </div>"
       // Question: What does this code do??
       $.post("/api/newReservation", newReservation)
       .done(function(data) {
         console.log(data);
-        alert("Adding reservation...");
+        var alert = $("<div/>").addClass("alert alert-success alert-dismissable");
+        alert.html("<a href='#'' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Reservation Added</strong>");
+        alert.ready(function(){
+          setTimeout(function(){
+            $(".close").click();
+          }, 5000);
+        });
+        $("#main").append(alert);
       });
 
     });
