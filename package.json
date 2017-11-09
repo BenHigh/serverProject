@@ -1,24 +1,25 @@
 {
-  "name": "starwars-express",
+  "name": "serverproj",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "dependencies": {
-<<<<<<< HEAD
-    "body-parser": "^1.15.0",
-    "crypto-js": "^3.1.9-1",
-    "express": "^4.13.4"
-=======
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "path": "^0.12.7"
->>>>>>> 7a3797ac5b84c15e9d1ceeed7aa2617709add003
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenHigh/serverProject.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenHigh/serverProject/issues"
+  },
+  "homepage": "https://github.com/BenHigh/serverProject#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
 }
