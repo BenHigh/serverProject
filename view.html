@@ -28,10 +28,11 @@
             <h3 class="panel-title"><strong>Reservation Search</strong></h3>
           </div>
           <div class="panel-body">
-            <input type="text" id="character-search" class="form-control" >
+            <input type="text" id="reservation-search" class="form-control" >
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-search"></span> You stalking someone?</button>
+              <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-search"></span> Search your Reservation.</button>
+
 
             </div>
           </div>
@@ -39,12 +40,12 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><strong>Character Statistics</strong></h3>
+            <h3 class="panel-title"><strong>Reservation List</strong></h3>
           </div>
           <div class="panel-body">
             <div class="well">
-              <h2 id="name">Bond</h2>
-              <div id="stats">
+              <h2 id="name">Mr. Smith</h2>
+              <div id="reservations">
                 <h3><strong>Reservation Name:</strong> <span id="name">J. Bond</span></h3>
                 <h3><strong>Reservation Time:</strong> <span id="time">16:77</span></h3>
                 <h3><strong>Phone Number:</strong> <span id="phone">007</span></h3>
@@ -58,22 +59,22 @@
 
   <script type="text/javascript">
     $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
+      var searchedReservation = $("#reservation-search").val().trim();
 
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+      searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
 
-      $.get("/api/" + searchedCharacter, function(data) {
+      $.get("/api/" + searchedReservation, function(data) {
         console.log(data);
         if (data) {
-          $("#stats").show();
-          $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
+          $("#reservations").show();
+          $("#reservationName").text(data.name);
+          $("#phone_number").text(data.phone_number);
+          $("#email").text(data.email);
+          // $("#").text(data.);
         }
         else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
+          $("#reservationName").text("404 wow such error");
+          $("#reservations").hide();
         }
       });
     });
