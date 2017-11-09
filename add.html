@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
+  <title>Hot Covfefe Cafe</title>
+
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -13,11 +14,15 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Star Wars Express</h1>
-      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+
+      
+
+      <h1>Welcome to Hot Covfefe</h1>
+      <h3>The greatest farce since San Andreas</h3>
       <hr>
-      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Characters</button></a>
-      <a href="/all"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Characters</button></a>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Tables</button></a>
+      <a href="/all"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span>Home</button></a>
+
     </div>
     <div class="row">
 
@@ -25,35 +30,41 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><strong>Add Characters</strong></h3>
+
+            <h3 class="panel-title"><strong>Table Reservation</strong></h3>
+
           </div>
           <div class="panel-body">
             <form role="form">
 
               <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
+                <label for="reservationName">reservationName</label>
+                <input type="text" class="form-control" id="reservationName">
               </div>
 
               <div class="form-group">
-                <label for="role">Role</label>
-                <input type="text" class="form-control" id="role">
+
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="form-control" id="phone_number">
               </div>
 
               <div class="form-group">
-                <label for="age">Age</label>
-                <input type="text" class="form-control" id="age">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email">
               </div>
 
               <div class="form-group">
-                <label for="force-points">Force Points</label>
-                <input type="text" class="form-control" id="force-points">
+                <label for="unique_id">Unique ID</label>
+                <input type="text" class="form-control" id="unique_id">
+
               </div>
 
             </form>
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Add to the Force</button>
+
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span>Make Your Reservation</button>
+
             </div>
           </div>
         </div>
@@ -67,18 +78,18 @@
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
 
-      var newCharacter = {
+      var newReservation = {
         name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
+        phone_number: $("#phone_number").val().trim(),
+        email: $("#email").val().trim(),
+        unique_id: $("#unique_id").val().trim()
       };
 
       // Question: What does this code do??
-      $.post("/api/new", newCharacter)
+      $.post("/api/newReservation", newReservation)
       .done(function(data) {
         console.log(data);
-        alert("Adding character...");
+        alert("Adding reservation...");
       });
 
     });

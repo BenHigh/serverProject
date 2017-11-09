@@ -15,27 +15,24 @@ app.use(bodyParser.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-var characters = [
+var reservation = [
   {
-    routeName: "yoda",
-    name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
+    reservationName: "Mr. von Hapsburg",
+    name: "Fernando von Hapsburg",
+    date: "11/10/2017",
+    time: "6:00pm"
   },
   {
-    routeName: "darthmaul",
-    name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
+   reservationName: "Mr. von Ranck",
+    name: "John von Ranck",
+    date: "11/11/2017",
+    time: "7:00pm"
   },
   {
-    routeName: "obiwankenobi",
-    name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
+    reservationName: "Mr. High",
+    name: "Ben High",
+    date: "4/20/2020",
+    time: "4:20pm"
   }
 ];
 
@@ -56,35 +53,35 @@ app.get("/all", function(req, res) {
 });
 
 // Search for Specific Character (or all characters) - provides JSON
-app.get("/api/:characters?", function(req, res) {
-  var chosen = req.params.characters;
+app.get("/api/:reservation?", function(req, res) {
+  var chosen = req.params.reservation;
 
   if (chosen) {
     console.log(chosen);
 
-    for (var i = 0; i < characters.length; i++) {
-      if (chosen === characters[i].routeName) {
-        return res.json(characters[i]);
+    for (var i = 0; i < reservation.length; i++) {
+      if (chosen === reservation[i].routeName) {
+        return res.json(reservation[i]);
       }
     }
 
     return res.json(false);
   }
-  return res.json(characters);
+  return res.json(reservation);
 });
 
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
-  var newcharacter = req.body;
-  newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+  var newReservation = req.body;
+  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newcharacter);
+  console.log(newReservation);
 
-  characters.push(newcharacter);
+  reservation.push(newReservation);
 
-  res.json(newcharacter);
+  res.json(newReservation);
 });
 
 // Starts the server to begin listening
