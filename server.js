@@ -102,18 +102,7 @@ cApp.get("/", function(req, res) {
 });
 
 cApp.post("/api/newReservation", function(req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body-parser middleware
-  var newReservation = req.body;
-  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
-
-  newReservation.uID = sid.generate();
- 
-  console.log(newReservation);
-
-  reservation.push(newReservation);
-
-  res.json(newReservation);
+  app.post("/api/newReservation", newReservation)
 });
 
 // Starts the server to begin listening
