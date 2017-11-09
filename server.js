@@ -3,6 +3,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
+var sid = require("shortid");
 
 // Sets up the Express App
 // =============================================================
@@ -19,20 +20,23 @@ var reservation = [
   {
     reservationName: "Mr. von Hapsburg",
     name: "Fernando von Hapsburg",
-    date: "11/10/2017",
-    time: "6:00pm"
+    time: "6:00pm",
+    phone: "200-099-9999",
+    uID: sid.generate()
   },
   {
    reservationName: "Mr. von Ranck",
     name: "John von Ranck",
-    date: "11/11/2017",
-    time: "7:00pm"
+    time: "7:00pm",
+    phone: "200-099-9999",
+    uID: sid.generate()
   },
   {
     reservationName: "Mr. High",
     name: "Ben High",
-    date: "4/20/2020",
-    time: "4:20pm"
+    time: "4:20pm",
+   phone: "200-099-9999",
+    uID: sid.generate()
   }
 ];
 
