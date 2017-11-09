@@ -46,9 +46,9 @@
             <div class="well">
               <h2 id="name">Mr. Smith</h2>
               <div id="reservations">
-                <h3><strong>Reservation Name:</strong> <span id="name">J. Bond</span></h3>
                 <h3><strong>Reservation Time:</strong> <span id="time">16:77</span></h3>
                 <h3><strong>Phone Number:</strong> <span id="phone">007</span></h3>
+                <h3><strong>Unique ID:</strong> <span id="uID">someHASH</span></h3>
               </div>
             </div>
           </div>
@@ -69,10 +69,10 @@
         console.log(data);
         if (data) {
           $("#reservations").show();
-          $("#reservationName").text(data.name);
+          $("#name").text(data.name);
+          $("#time").text(data.time);
           $("#phone").text(data.phone);
           $("#uID").text(data.uID);
-          $("#time").text(data.time);
           // $("#").text(data.);
         }
         else {
