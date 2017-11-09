@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hot Covfefe Cafe</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container" id="main">
+    <div class="jumbotron">
+
+
+
+      <h1>Welcome to Hot Covfefe</h1>
+      <h3>The greatest farce since San Andreas</h3>
+      <hr>
+      <a href="/all"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Tables</button></a>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span>Home</button></a>
+
+
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+
+            <h3 class="panel-title"><strong>Table Reservation</strong></h3>
+
+          </div>
+          <div class="panel-body">
+            <form role="form">
+
+              <div class="form-group">
+                <label for="reservationName">Reservation Name</label>
+                <input type="text" class="form-control" id="reservationName">
+              </div>
+
+              <div class="form-group">
+                <label for="time">Time</label>
+                <input type="text" class="form-control" id="time">
+              </div>
+
+              <div class="form-group">
+
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="form-control" id="phone_number">
+              </div>
+
+
+            </form>
+            <br>
+            <div class="text-right">
+
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span>Make Your Reservation</button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+
+      var newReservation = {
+        name: $("#reservationName").val().trim(),
+        phone: $("#phone_number").val().trim(),
+        time: $("#time").val().trim(),
+        uID: ""
+      };
+// "<div class="alert alert-success alert-dismissable">
+//    Indicates a successful or positive action.
+// </div>"
+      // Question: What does this code do??
+      $.post("/api/newReservation", newReservation)
+      .done(function(data) {
+        console.log(data);
+        var alert = $("<div/>").addClass("alert alert-success alert-dismissable");
+        alert.html("<a href='#'' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Reservation Added</strong>");
+        alert.ready(function(){
+          setTimeout(function(){
+            $(".close").click();
+          }, 5000);
+        });
+        $("#main").append(alert);
+      });
+
+    });
+  </script>
+</body>
+</html>
