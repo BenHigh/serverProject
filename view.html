@@ -63,12 +63,14 @@
 
       searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
 
+      console.log(searchedReservation);
+
       $.get("/api/" + searchedReservation, function(data) {
         console.log(data);
         if (data) {
           $("#reservations").show();
           $("#reservationName").text(data.name);
-          $("#phone_number").text(data.phone);
+          $("#phone").text(data.phone);
           $("#uID").text(data.uID);
           $("#time").text(data.time);
           // $("#").text(data.);

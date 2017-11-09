@@ -20,21 +20,18 @@ app.use(bodyParser.json());
 // =============================================================
 var reservation = [
   {
-    reservationName: "Mr. von Hapsburg",
     name: "Fernando von Hapsburg",
     time: "6:00pm",
     phone: "200-099-9999",
     uID: sid.generate()
   },
   {
-   reservationName: "Mr. von Ranck",
     name: "John von Ranck",
     time: "7:00pm",
     phone: "200-099-9999",
     uID: sid.generate()
   },
   {
-    reservationName: "Mr. High",
     name: "Ben High",
     time: "4:20pm",
     phone: "200-099-9999",
@@ -66,7 +63,8 @@ app.get("/api/:reservation?", function(req, res) {
     console.log(chosen);
 
     for (var i = 0; i < reservation.length; i++) {
-      if (chosen === reservation[i].routeName) {
+      var temp = reservation[i].name.replace(/\s+/g, "").toLowerCase();
+      if (chosen === temp ) {
         return res.json(reservation[i]);
       }
     }
