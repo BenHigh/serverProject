@@ -28,21 +28,21 @@ var reservation = [
     name: "Fernando von Hapsburg",
     date: "11/10/2017",
     time: "6:00pm",
-    uid: sid.generate();
+    uid: sid.generate()
   },
   {
    reservationName: "Mr. von Ranck",
     name: "John von Ranck",
     date: "11/11/2017",
     time: "7:00pm",
-    uid: sid.generate();
+    uid: sid.generate()
   },
   {
     reservationName: "Mr. High",
     name: "Ben High",
     date: "4/20/2020",
     time: "4:20pm",
-    uid: sid.generate();
+    uid: sid.generate()
   }
 ];
 
